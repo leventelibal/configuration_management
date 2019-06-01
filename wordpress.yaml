@@ -23,31 +23,31 @@
       ignore_errors: true
 
 
-  - name: Download 1 package
-    get_url:
-      url: "https://wordpress.org/latest.zip"
-      dest: /tmp/
-  - name: unzip wordpress file
-    unarchive: 
-      src: "/tmp/wordpress-5.2.1.zip"
-      dest: /var/www/html/  
-      remote_src: yes
-    become: yes
-    become_method: sudo
+    - name: Download 1 package
+      get_url:
+        url: "https://wordpress.org/latest.zip"
+        dest: /tmp/
+    - name: unzip wordpress file
+      unarchive: 
+        src: "/tmp/wordpress-5.2.1.zip"
+        dest: /var/www/html/  
+        remote_src: yes
+      become: yes
+      become_method: sudo
 
-  - name: move files to html folder
-    shell: "mv /var/www/html/wordpress/* /var/www/html/"  
-    become: yes
-    become_method: sudo
-    ignore_errors: yes
+    - name: move files to html folder
+      shell: "mv /var/www/html/wordpress/* /var/www/html/"  
+      become: yes
+      become_method: sudo
+      ignore_errors: yes
 
-  - name: Restart httpd
-    systemd: 
-      name: httpd
-      state: restarted 
-      enabled: yes
-    become: yes
-    become_method: sudo
+    - name: Restart httpd
+      systemd: 
+        name: httpd
+        state: restarted 
+        enabled: yes
+      become: yes
+      become_method: sudo
 
 
     
