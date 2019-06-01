@@ -1,53 +1,51 @@
---- 
-- name: installs wordpress
-  hosts: localhost
-  become: yes
-  become_method: sudo 
-  gather_facts: no
-  connection: ssh
-  tasks: 
-    - name: install necessary packages
-      package:
-        name: "{{item}}" 
-        state: latest
-      with items:
-        - php-gd
-        - httpd
-        - mysgl
-        - mariadb-server
-        - php
-        - php-mysql
-        - php-fpm
-        - wget
-        - unzip
-      ignore_errors: true
+---
+ - name : Installs wordpress
+   hosts: localhost
+   become : yes
+   become_method : sudo 
+   gather_facts: no
+   connection: ssh
+   tasks:
+      - name : Install necessary packages
+        package: 
+          name : "{{item}}"
+          state: latest
+        with_items: 
+          - wget
+          - unzip
+          - php-gd
+          - httpd
+          - mysql
+          - mariadb-server
+          - php
+          - php-mysql
+          - php-fpm 
+        ignore_errors: true 
+
+      - name: Download wordpress package
+        get_url: 
+          url: "https://wordpress.org/latest.tar.gz"
+          dest: /tmp/
+
+      - name : Unzip wordpress file
+        unarchive: 
+          src: /tmp/wordpress-5.2.1.tar.gz
+          dst: /var/www/html/
+          remote_src: yes 
+        become: yes
+        become_method: sudo 
+
+      - name :  Move files to html folder
+        shell: "mv /var/www/html/wordpress/*  /var/www/html"
+        become: yes
+        become_method: sudo 
+        ignore_errors: yes
 
 
-    - name: Download 1 package
-      get_url:
-        url: "https://wordpress.org/latest.zip"
-        dest: /tmp/
-    - name: unzip wordpress file
-      unarchive: 
-        src: "/tmp/wordpress-5.2.1.zip"
-        dest: /var/www/html/  
-        remote_src: yes
-      become: yes
-      become_method: sudo
-
-    - name: move files to html folder
-      shell: "mv /var/www/html/wordpress/* /var/www/html/"  
-      become: yes
-      become_method: sudo
-      ignore_errors: yes
-
-    - name: Restart httpd
-      systemd: 
-        name: httpd
-        state: restarted 
-        enabled: yes
-      become: yes
-      become_method: sudo
-
-
-    
+      - name: restart httpd
+        systemd: 
+          name: httpd
+          state: restarted
+          enabled: yes
+        become: yes
+        become_method: sudo
