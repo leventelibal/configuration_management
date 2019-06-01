@@ -1,6 +1,6 @@
 --- 
 - name: installs wordpress
-  host: weblocalhost
+  host: localhost
   become: yes
   become_method: sudo 
   gather_facts: no
