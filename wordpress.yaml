@@ -6,21 +6,21 @@
   gather_facts: no
   connection: ssh
   tasks: 
-  - name: install necessary packages
-    package:
-      name: "{{item}}" 
-      state: latest
-    with items:
-      - php-gd
-      - httpd
-      - mysgl
-      - mariadb-server
-      - php
-      - php-mysql
-      - php-fpm
-      - wget
-      - unzip
-    ignore_errors: true
+    - name: install necessary packages
+      package:
+        name: "{{item}}" 
+        state: latest
+      with items:
+        - php-gd
+        - httpd
+        - mysgl
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-fpm
+        - wget
+        - unzip
+      ignore_errors: true
 
 
   - name: Download 1 package
