@@ -1,10 +1,9 @@
 --- 
 - name: installs wordpress
-  host: web
+  host: weblocalhost
   become: yes
   become_method: sudo 
   gather_facts: no
-  ignore_errors: true
   connection: ssh
   tasks: 
     - name: install necessary packages
@@ -18,3 +17,32 @@
        -mariadb-server
        -php
        -php-mysql
+       -php-fpm
+       -wget
+       -unzip
+      ignore_errors: true
+
+
+    - name: Download 1 package
+      get_url:
+        url: "https://wordpress.org/latest.zip"
+        dest: /tmp/
+    
+
+
+    - name: unzip wordpress file
+      unarchive: 
+        src: "/tmp/latest.zip"
+        dest: /var/www/html/  
+      become: yes
+      become_method: sudo
+
+    - name: move files to html folder
+      shell: "mv /var/www/html/wordpress/* /var/www/html"  
+      become: yes
+      become_method: sudo
+      ignore_errors: yes
+
+    - name: Restart httpd
+      systemd: 
+        name: httpd
