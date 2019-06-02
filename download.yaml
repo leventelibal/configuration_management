@@ -11,7 +11,7 @@
       promt: "Give me your location to put"
       private: no  
   task: 
-    -name: Download 1 package
+    - name: Download 1 package
       get_url:
         url: "{{URL}}"
         dest: "{{Url}}"
