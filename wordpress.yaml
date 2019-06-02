@@ -5,11 +5,7 @@
   become_method: sudo 
   gather_facts: no
   connection: ssh
-  tasks:
-    - set_fact:
-        ansible_facts:
-          pkg_mgr: yum
-    
+  tasks:  
     - name: Install necessary packages
       package: 
         name: "{{item}}"
