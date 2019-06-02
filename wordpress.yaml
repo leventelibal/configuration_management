@@ -24,7 +24,6 @@
         - php
         - php-mysql
         - php-fpm 
-      
       ignore_errors: true 
 
     - name: install remi php epel release
