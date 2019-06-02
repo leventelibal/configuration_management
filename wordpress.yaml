@@ -7,8 +7,8 @@
   connection: ssh
   tasks:
     - set_fact:
-      ansible_facts:
-        pkg_mgr: yum
+        ansible_facts:
+          pkg_mgr: yum
     
     - name: Install necessary packages
       package: 
