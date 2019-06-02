@@ -20,7 +20,7 @@
         - php
         - php-mysql
         - php-fpm 
-        - yum
+      
       ignore_errors: true 
 
     - name: install remi php epel release
