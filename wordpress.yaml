@@ -14,15 +14,15 @@
         name: "{{item}}"
         state: latest
       with_items: 
-          - wget
-          - unzip
-          - php-gd
-          - httpd
-          - mysql
-          - mariadb-server
-          - php
-          - php-mysql
-          - php-fpm 
+        - wget
+        - unzip
+        - php-gd
+        - httpd
+        - mysql
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-fpm 
       ignore_errors: true 
 
     - name: Download wordpress package
