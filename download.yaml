@@ -10,5 +10,5 @@
   task: 
     -name: Download 1 package
       get_url:
-        url:
+        url: {{URL}}
         dest: /tmp/
