@@ -1,23 +1,26 @@
 ---
 - name: helps to download file 
   vars_prompt:
-    - name: URL
-      prompt: "Give me the url:"
-      private: no
-    - name: Destination
-      promt: "Give me your location to put"
-      private: no  
-    - name: HOST
-      prompt: "which host?"
-      private: no
+  - name: URL
+    prompt: "Give me the url: "
+    private: no
+
+  - name: Destination
+    promt: "Give me your location to put"
+    private: no  
+
+  - name: HOST
+    prompt: "which host?"
+    private: no
+
   host: "{{HOST}}"
   become: yes
   become_method: sudo
   task: 
-    - name: Download 1 package
-      get_url:
-        url: "{{URL}}"
-        dest: "{{DestinationS}}"
+  - name: Download 1 package
+    get_url:
+      url: "{{URL}}"
+      dest: "{{Destination}}"
   
 
   
