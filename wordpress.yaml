@@ -3,8 +3,6 @@
   hosts: web
   become: yes
   become_method: sudo 
-  gather_facts: no
-  connection: ssh
   tasks:  
     - name: Install necessary packages
       package: 
