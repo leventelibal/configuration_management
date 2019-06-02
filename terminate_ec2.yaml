@@ -8,7 +8,7 @@
       private: no 
   hosts: localhost
   tasks:
-    -name: Terminate instances
+    - name: Terminate instances
       ec2:
         instance_ids: "{{ID}}"
         state: absent #stoped # started
