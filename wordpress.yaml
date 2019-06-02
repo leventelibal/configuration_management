@@ -23,11 +23,11 @@
       ignore_errors: true 
 
     - name: install remi php epel release
-      shell: "sudo wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+      shell: "wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
     - name: configuration enable
-      shell: "sudo yum-config-manager --enable remi-php70"
+      shell: "yum-config-manager --enable remi-php70"
     - name: update httpd PHP mysql
-      shell: "sudo yum update httpd php php-mysql mysql"  
+      shell: "yum update httpd php php-mysql mysql"  
 
     - name: Download wordpress package
       get_url: 
