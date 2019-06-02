@@ -2,8 +2,12 @@
 - host: localhost
   tasks:
     - name: update kernel to lastest
+      when: ansible_distribution == "CentOS" amd amsible_distribution_major_version =="7"
       package:
         name: kernel
         state: latest
       become: yes
       become_method: sudo 
+    - name: Restart the system
+      reboot:
+        
