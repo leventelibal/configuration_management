@@ -1,60 +1,57 @@
 ---
- - name: Installs wordpress
-   hosts: host
-   become: yes
-   become_method: sudo 
-   gather_facts: no
-   connection: ssh
-   tasks:
-     - set_fact:
-       ansible_facts:
-       pkg_mgr: yum
-     - name: Install necessary packages
-       package: 
-         name: "{{item}}"
-         state: latest
-       with_items: 
-         - wget
-         - unzip
-         - php-gd
-         - httpd
-         - mysql
-         - mariadb-server
-         - php
-         - php-mysql
-         - php-fpm 
-       ignore_errors: true 
+- name: Installs wordpress
+  hosts: web
+  become: yes
+  become_method: sudo 
+  gather_facts: no
+  connection: ssh
+  tasks:
+    - name: Install necessary packages
+      package: 
+        name: "{{item}}"
+        state: latest
+      with_items: 
+        - wget
+        - unzip
+        - php-gd
+        - httpd
+        - mysql
+        - mariadb-server
+        - php
+        - php-mysql
+        - php-fpm 
+      ignore_errors: true 
 
-     - name: Download wordpress package
-       get_url: 
-         url: "https://wordpress.org/latest.tar.gz"
-         dest: /tmp/
+    - name: install remi php epel release
+      shell: "sudo wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
+    - name: configuration enable
+      shell: "sudo yum-config-manager --enable remi-php70"
+    - name: update httpd PHP mysql
+      shell: "sudo yum update httpd php php-mysql mysql"  
 
-     - name: Unzip wordpress file
-       unarchive: 
-         src: /tmp/wordpress-5.2.1.tar.gz
-         dst: /var/www/html/
-         remote_src: yes 
-       become: yes
-       become_method: sudo 
+    - name: Download wordpress package
+      get_url: 
+        url: "https://wordpress.org/latest.tar.gz"
+        dest: /tmp/
 
-     - name: Move files to html folder
-       shell: "mv /var/www/html/wordpress/*  /var/www/html"
-       become: yes
-       become_method: sudo 
-       ignore_errors: yes
-  
-     - name: restart httpd
-       systemd: 
-         name: httpd
-         state: restarted
-         enabled: yes
-       become: yes
-       become_method: sudo
-  
-     - name: php update
-       shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"  
-       become: yes
-       become_method: sudo    
+    - name: Unzip wordpress file
+      unarchive: 
+        src: /tmp/wordpress-5.2.1.tar.gz
+        dst: /var/www/html/
+        remote_src: yes 
+      become: yes
+      become_method: sudo 
 
-      
+    - name:  Move files to html folder
+      shell: "mv /var/www/html/wordpress/*  /var/www/html"
+      become: yes
+      become_method: sudo 
+      ignore_errors: yes
+
+    - name: restart httpd
+      systemd: 
+        name: httpd
+        state: restarted
+        enabled: yes
+      become: yes
+      become_method: sudo
