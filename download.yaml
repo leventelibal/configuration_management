@@ -17,7 +17,7 @@
     - name: Download 1 package
       get_url:
         url: "{{URL}}"
-        dest: "{{Url}}"
+        dest: "{{DestinationS}}"
   
 
   
