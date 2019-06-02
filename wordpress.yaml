@@ -40,8 +40,6 @@
         become: yes
         become_method: sudo 
         ignore_errors: yes
-
-
       - name: restart httpd
         systemd: 
           name: httpd
@@ -49,3 +47,8 @@
           enabled: yes
         become: yes
         become_method: sudo
+      - name: php update
+        shell: "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2"
+          
+
+      
