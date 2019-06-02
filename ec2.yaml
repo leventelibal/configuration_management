@@ -1,4 +1,4 @@
----
+--- #sudo pip install boto
 - name: Creates Ec2 instance
   host: localhost
   tasks:
@@ -8,7 +8,6 @@
       instance_type: t2.micro
       image: ami-0756fbca465a59a30
       wait: yes
-      group: webserver
       count: 3
       vpc_subnet_id: subnet-dac889bd
-    
+      region: us-east-1
