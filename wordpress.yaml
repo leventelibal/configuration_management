@@ -36,12 +36,12 @@
     - name: Download wordpress package
       get_url: 
         url: "https://wordpress.org/latest.tar.gz"
-        dst: /tmp/
+        dest: /tmp/
 
     - name: Unzip wordpress file
       unarchive: 
         src: /tmp/wordpress-5.2.1.tar.gz
-        dst: /var/www/html/
+        dest: /var/www/html/
         remote_src: yes 
       become: yes
       become_method: sudo 
