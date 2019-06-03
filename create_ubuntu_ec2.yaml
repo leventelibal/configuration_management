@@ -2,7 +2,7 @@
 - name: Creates Ec2 instance
   hosts: localhost
   tasks:
-    - name: Create debian instance 
+    - name: Create ubuntu instance 
       ec2:
         key_name: awx-tower-sudo
         instance_type: t2.micro
