@@ -4,6 +4,7 @@
   tasks:
     - name: Create ubuntu instance 
       ec2:
+        group: ssh
         key_name: awx-tower-sudo
         instance_type: t2.micro
         image: ami-08e053c0dc7059edf
