@@ -4,7 +4,7 @@
     - name: ID
       prompt: "Instance ID to terminate"
     - name: REGION
-      prompt: "REgion of the instance"
+      prompt: "Region of the instance"
       private: no 
   hosts: localhost
   tasks:
