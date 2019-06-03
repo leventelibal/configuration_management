@@ -6,7 +6,7 @@
       ec2:
         key_name: awx-tower-sudo
         instance_type: t2.micro
-        image: ami-02eac2c0129f6376b
+        image: ami-08e053c0dc7059edf
         count: 1
         vpc_subnet_id: subnet-5df7bb73
         region: us-east-1
