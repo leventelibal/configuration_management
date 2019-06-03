@@ -6,8 +6,8 @@
     - name: update kernel to lastest
       when: ansible_distribution == "CentOS" #and amsible_distribution_major_version =="7"
       package:
-        name: kernel
-        state: latest
+    - name: kernel
+      state: latest
     - name: system restart
       when: ansible_distribution == "CentOS" #and amsible_distribution_major_version =="7"
     - name: Restart the system
