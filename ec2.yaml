@@ -7,7 +7,6 @@
       key_name: mywindows
       instance_type: t2.micro
       image: ami-0756fbca465a59a30
-      wait: yes
       count: 3
       vpc_subnet_id: subnet-dac889bd
       region: us-east-1
