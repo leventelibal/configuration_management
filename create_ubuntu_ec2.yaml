@@ -3,7 +3,6 @@
   hosts: localhost
   tasks:
     - name: Create debian instance 
-      group: ssh
       ec2:
         key_name: awx-tower-sudo
         instance_type: t2.micro
