@@ -7,8 +7,8 @@
         group: ssh
         key_name: awx-tower-sudo
         instance_type: t2.micro
-        image: ami-08e053c0dc7059edf
+        image: ami-076e36b130f0652ac
         count: 1
-        vpc_subnet_id: subnet-5df7bb73
+        vpc_subnet_id: subnet-ddf5b781
         region: us-east-1
         assign_public_ip: yes
