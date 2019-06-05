@@ -1,0 +1,6 @@
+ key_name: mywindows
+ instance_type: t2.micro
+ image: ami-02eac2c0129f6376b
+ count: 3
+ vpc_subnet_id: subnet-5df7bb73
+ region: us-east-1
