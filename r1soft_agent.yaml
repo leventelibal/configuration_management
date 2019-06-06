@@ -31,6 +31,15 @@
         systemd:
           name: sbm-agent
           state: restart
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
+        service:
+          name: sbm-agent
+          state: restart
+      - name: R1SOFT_INSTALLED_ON_CENTOS_8
+        systemd:
+          name: sbm-agent
+          state: restart
+      
 
 
 
@@ -54,6 +63,8 @@
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="6"
+
+        
       
       # this line for Fedora
       - block: 
@@ -76,7 +87,7 @@
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="28"
       
-      
+    # this line for centos 8
       - block: 
         - name: Create a Repostry
           copy:
