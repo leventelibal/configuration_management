@@ -13,9 +13,10 @@
 
         - name: Install r1soft agent
           package: 
-            name: serverbadckup-enterprise-agent
+            name: serverbackup-enterprise-agent
             state: latest
-          
+          notify: R1SOFT_INSTALLED
+
         - name: Start Agent
           systemd:
             name: sbm-agent
@@ -24,7 +25,15 @@
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="7"
-      
+
+    handlers:
+      - name: R1SODT_INSTALLED_ON_CENTOS_7
+        systemd:
+          name: sbm-agent
+          state: restart
+
+          
+                
      #This line for centos 6 
       - block: 
         - name: Create a Repostry
@@ -34,7 +43,7 @@
 
         - name: Install r1soft agent
           package: 
-            name: serverbadckup-enterprise-agent
+            name: serverbackup-enterprise-agent
             state: latest
           
         - name: Start Agent
@@ -45,3 +54,45 @@
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="6"
+      
+      # this line for Fedora
+      - block: 
+        - name: Create a Repostry
+          copy:
+            src: r1soft.repo
+            dest: /etc/yum.repos.d/r1soft.repo
+        
+        - name: Install r1soft agent
+          package: 
+            name: serverbackkup-enterprise-agent
+            state: latest
+          
+        - name: Start Agent
+          systemd:
+            name: sbm-agent
+            state: restarted 
+      
+        - name: Get Key
+          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+        when: ansible_distribution =="CenOS" and ansible_distribution =="28"
+      
+      
+      - block: 
+        - name: Create a Repostry
+          copy:
+            src: r1soft.repo
+            dest: /etc/yum.repos.d/r1soft.repo
+
+        - name: Install r1soft agent
+          package: 
+            name: serverbackup-enterprise-agent
+            state: latest
+          
+        - name: Start Agent
+          service:
+            name: cdp-agent
+            state: restarted 
+      
+        - name: Get Key
+          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+        when: ansible_distribution =="CenOS" and ansible_distribution =="6"  
