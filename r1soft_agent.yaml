@@ -27,13 +27,13 @@
         when: ansible_distribution =="CenOS" and ansible_distribution =="7"
 
     handlers:
-      - name: R1SODT_INSTALLED_ON_CENTOS_7
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
         systemd:
           name: sbm-agent
           state: restart
 
-          
-                
+
+
      #This line for centos 6 
       - block: 
         - name: Create a Repostry
