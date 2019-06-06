@@ -4,6 +4,7 @@
     become : yes
     become_method: sudo 
     tasks:
+    # this line foe centos 7
       - block: 
         - name: Create a Repostry
           copy:
@@ -22,4 +23,26 @@
       
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
-        when: ansible_distribution =="CenOS"  
+        when: ansible_distribution =="CenOS" and ansible_distribution =="7"
+      
+     #This line for centos 6 
+      - block: 
+        - name: Create a Repostry
+          copy:
+            src: r1soft.repo
+            dest: /etc/yum.repos.d/r1soft.repo
+
+        - name: Install r1soft agent
+          package: 
+            name: serverbadckup-enterprise-agent
+            state: latest
+          
+        - name: Start Agent
+          systemd:
+            name: cdp-agent
+            state: restarted 
+      
+        - name: Get Key
+          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+        when: ansible_distribution =="CenOS" and ansible_distribution =="6"
+        
