@@ -5,7 +5,6 @@
     become_method: sudo 
     tasks:
       - block: 
-        when: ansible_distribution =="CenOS"
         - name: Create a Repostry
           copy:
             src: r1soft.repo
@@ -22,4 +21,5 @@
             state: restarted 
       
         - name: Get Key
-          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"    
+          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+        when: ansible_distribution =="CenOS"  
