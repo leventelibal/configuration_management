@@ -38,11 +38,10 @@
             state: latest
           
         - name: Start Agent
-          systemd:
+          service:
             name: cdp-agent
             state: restarted 
       
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="6"
-        
