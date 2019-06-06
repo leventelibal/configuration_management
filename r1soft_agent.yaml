@@ -26,19 +26,7 @@
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="7"
 
-    handlers:
-      - name: R1SOFT_INSTALLED_ON_CENTOS_7
-        systemd:
-          name: sbm-agent
-          state: restart
-      - name: R1SOFT_INSTALLED_ON_CENTOS_7
-        service:
-          name: sbm-agent
-          state: restart
-      - name: R1SOFT_INSTALLED_ON_CENTOS_8
-        systemd:
-          name: sbm-agent
-          state: restart
+    
       
 
 
@@ -107,3 +95,22 @@
         - name: Get Key
           shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="6"  
+   
+   
+    handlers:
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
+        systemd:
+          name: sbm-agent
+          state: restarted
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
+        service:
+          name: sbm-agent
+          state: restarted
+      - name: R1SOFT_INSTALLED_ON_CENTOS_8
+        systemd:
+          name: sbm-agent
+          state: restarted
+      - name: R1SOFT_INSTALLED_ON_FEDORA_28
+        systemd:
+          name: sbm-agent
+          state: restarted
