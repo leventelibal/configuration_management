@@ -3,10 +3,10 @@
 54.167.245.252 ansible_user=root #centos6
 35.175.247.174 ansible_user=root #centos6
 18.205.185.219 ansible_user=root #centos6
-54.158.9.247 #centos7
-54.198.44.21 #centos7
-3.89.40.97 #centos7
-54.81.23.243 #centos7
+54.158.9.247 ansible_user=root #centos7
+54.198.44.21 ansible_user=root #centos7
+3.89.40.97 ansible_user=root #centos7
+54.81.23.243 ansible_user=root #centos7
 35.173.253.135 ansible_user=root #fedora
 3.81.47.255 ansible_user=root #fedora
 
