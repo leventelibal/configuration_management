@@ -11,7 +11,7 @@
     - name: Install ncpa on centos6
       package:
         name: ncpa
-        state: present 
+        state: latest 
       notify: NCPA_CENTOS_6 
 
     - name: Change the code inside ncpa.cfg
@@ -29,7 +29,7 @@
     - name: Install ncpa on centos7
       package: 
         name: ncpa
-        state: present
+        state: latest
       notify: NCPA_CENTOS_7
 
     - name: Change the code inside ncpa.cfg
@@ -48,7 +48,7 @@
       when: ansible_distribution == "Amazon"        
       package: 
         name: ncpa
-        state: present
+        state: latest
       notify: NCPA_Amazon
 
     - name: Change the code inside ncpa.cfg
