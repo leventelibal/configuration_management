@@ -1,6 +1,6 @@
 ---
   - name: install r1soft agent
-    hosts: Instances
+    hosts: target
     become: yes
     become_method: sudo
     tasks: 
@@ -11,7 +11,7 @@
              src: r1soft.repo
              dest: /etc/yum.repos.d/r1soft.repo
 
-        - name: Install r1soft pgent
+        - name: Install r1soft agent
           package: 
             name: serverbackup-enterprise-agent 
             state: latest 
@@ -33,7 +33,7 @@
 # This line is for CentOS 6
 
       - block:
-        - name: Create Repository
+        - name: Create a Repository
           copy: 
              src: r1soft.repo
              dest: /etc/yum.repos.d/r1soft.repo
@@ -79,7 +79,7 @@
 # This line is for Fedora
 
       - block:
-        - name: Create Repository
+        - name: Create a Repository
           copy: 
              src: r1soft.repo
              dest: /etc/yum.repos.d/r1soft.repo
@@ -91,7 +91,7 @@
           service: 
             name: cdp-agent
             state: restarted
-          notify: R1SOFT_INSTALLED_ON_FEDORA_29
+          notify: R1SOFT_INSTALLED_ON_FEDORA_28
         - name: Get key
           shell: "r1soft-setup --get-key http://35.192.9.120"
         when: ansible_distribution == "Fedora" and ansible_distribution_major_version == "29"
@@ -110,7 +110,7 @@
         systemd:
           name: sbm-agent
           state: restarted  
-      - name: R1SOFT_INSTALLED_ON_FEDORA_29
+      - name: R1SOFT_INSTALLED_ON_FEDORA_28
         systemd:
           name: sbm-agent
           state: restarted
