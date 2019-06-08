@@ -23,7 +23,7 @@
             state: restarted 
       
         - name: Get Key
-          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+          shell: "r1soft-setup --get-key http://35.192.9.120"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="7"
 
     
@@ -49,7 +49,7 @@
             state: restarted 
       
         - name: Get Key
-          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+          shell: "r1soft-setup --get-key http://35.192.9.120"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="6"
 
         
@@ -72,7 +72,7 @@
             state: restarted 
       
         - name: Get Key
-          shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+          shell: "r1soft-setup --get-key http://35.192.9.120"  
         when: ansible_distribution =="CenOS" and ansible_distribution =="28"
       
     # this line for centos 8

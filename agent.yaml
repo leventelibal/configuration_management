@@ -1,0 +1,9 @@
+
+---
+  - name: install r1soft-server
+    become: yes
+    become_method: sudo
+    hosts: all
+    tasks:
+      - name: add repository
+      
