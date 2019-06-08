@@ -11,7 +11,7 @@
     - name: Install ncpa on centos6
       package:
         name: ncpa
-        state: latest 
+        state: present 
       notify: NCPA_CENTOS_6 
 
     - name: Change the code inside ncpa.cfg
