@@ -1,0 +1,7 @@
+---
+- name: set mode on selinux
+  tasks:
+    - name: change default selinux mode
+      selinux:
+        policy: targeted
+        state: permissive
