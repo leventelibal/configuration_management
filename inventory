@@ -1,8 +1,8 @@
 [target]
-34.207.128.158 #centos6
-54.167.245.252 #centos6
-35.175.247.174 #centos6
-18.205.185.219 #centos6
+34.207.128.158 ansible_user=root #centos6
+54.167.245.252 ansible_user=root #centos6
+35.175.247.174 ansible_user=root #centos6
+18.205.185.219 ansible_user=root #centos6
 54.158.9.247 #centos7
 54.198.44.21 #centos7
 3.89.40.97 #centos7
