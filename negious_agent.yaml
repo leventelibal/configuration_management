@@ -68,5 +68,10 @@
           service: 
             name: ncpa_listener
             state: restarted 
+
+        - name: NCPA_Amazon
+          systemd: 
+            name: ncpa_listener
+            state: restarted  
   
 
