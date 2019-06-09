@@ -9,12 +9,14 @@
       shell: "rpm -Uvh http://repo.nagios.com/nagios/6/nagios-repo-6-3.el6.noarch.rpm"
 
     - name: Install ncpa on centos6
+      when: ansible_distribution == "CentOS" and ansible_distribution_version == "6"
       package:
         name: ncpa
         state: present 
       notify: NCPA_CENTOS_6 
 
     - name: Change the code inside ncpa.cfg
+      when: ansible_distribution == "CentOS" and ansible_distribution_version == "6"
       lineinfile:
         path: /usr/local/ncpa/etc/ncpa.cfg
         regexp: "community_string = mytoken"
