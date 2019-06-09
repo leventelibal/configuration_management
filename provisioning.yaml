@@ -1,0 +1,12 @@
+---
+  - name: provision Ec2 instance
+    hosts: all
+    become: yes
+    become_user: root
+    tasks: 
+      - name: Ping
+        ping:
+
+  - import_playbook: r1soft_agent.yaml
+  - import_playbook: negious_agent.yaml
+  - import_playbook: filebeat2.yaml
