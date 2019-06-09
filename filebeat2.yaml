@@ -12,7 +12,7 @@
           notify: FILEBEAT_CENTOS_6
           
         when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
-        ignore_errors: true
+        
 
 
       - block:
