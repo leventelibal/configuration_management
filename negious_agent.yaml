@@ -2,7 +2,7 @@
 - name: install ncpa agent on instances
   hosts: all
   become: yes
-  become_method: root
+  become_method: sudo
   tasks:
     - name: Create Repo on centos6
       when: ansible_distribution == "CentOS" and ansible_distribution_version == "6"
