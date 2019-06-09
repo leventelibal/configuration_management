@@ -1,0 +1,16 @@
+---
+  - name: 
+    become: yes
+    become_method: sudo
+    hosts: all
+    task:
+      - name: Add 1 user
+        user:
+          name: "{{user}}"
+          state: present
+
+      - name: add public key
+        lineinfile:
+           
+
+        
