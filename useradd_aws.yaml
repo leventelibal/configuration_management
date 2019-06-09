@@ -3,14 +3,22 @@
     become: yes
     become_method: sudo
     hosts: all
-    task:
+    tasks:
       - name: Add 1 user
         user:
           name: "{{user}}"
+          generate_ssh_key: true
           state: present
+      - name: Create autorize_key file
+        file:
+          path: "/home/{{user}}/.ssh/authorized_keys"
+          mode: 0600
+          state: touch
+          owner: "{{user}}"
 
       - name: add public key
         lineinfile:
-           
+          path: "/home/{{user}}/.ssh/authorized_keys"
+          line: "{{line}}"
 
         
