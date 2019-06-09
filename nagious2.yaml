@@ -1,0 +1,80 @@
+---
+- name: Installs ncpa agent on instances
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+#    - name: create repo on Centos6
+#      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+#      shell: "rpm -Uvh http://repo.nagios.com/nagios/6/nagios-repo-6-3.el6.noarch.rpm"
+#    
+#    - name: Install ncpa on Centos6
+#      package:
+#        name: ncpa
+#        state: present
+#      notify: NCPA_CENTOS_6
+#    
+    #This line changes string
+#    - name: Change the code inside ncpa.cfg
+#      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "6"
+#      lineinfile:
+#        path: /usr/local/ncpa/etc/ncpa.cfg
+#        regexp: "community_string = mytoken"
+#        line: "community_string = Huslentuguldur"
+# 
+ 
+#    - name: create repo on Centos7
+#      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+#      shell: "rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"#
+
+#    - name: Install ncpa on Centos7
+#      package:
+#        name: ncpa
+#        state: present
+#      notify: NCPA_CENTOS_7 
+
+            #This line changes string
+#    - name: Change the code inside ncpa.cfg
+#      when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
+#      lineinfile:
+#        path: /usr/local/ncpa/etc/ncpa.cfg
+#        regexp: "community_string = mytoken"
+#        line: "community_string = Huslentuguldur"
+
+
+#    - name: create repo on AMAZON
+#      when: ansible_distribution == "Amazon"
+#      shell: "rpm -Uvh http://repo.nagios.com/nagios/7/nagios-repo-7-3.el7.noarch.rpm"
+
+    - name: Install ncpa on AMAZON
+      package:
+        name: ncpa
+        state: latest
+      notify: NCPA_AMAZON
+
+    #This line changes string
+    - name: Change the code inside ncpa.cfg
+      when: ansible_distribution == "Amazon"
+      lineinfile:
+        path: /usr/local/ncpa/etc/ncpa.cfg
+        regexp: "community_string = mytoken"
+        line: "community_string = Huslentuguldur"
+  
+  
+  
+  handlers:
+#    - name: NCPA_CENTOS_6
+#      service:
+#        name: ncpa_listener
+#        state: restarted
+  
+  
+#    - name: NCPA_CENTOS_7
+#      systemd:
+#        name: ncpa_listener 
+#        state: restarted
+
+    - name: NCPA_AMAZON
+      systemd:
+        name: ncpa_listener
+        state: restarted
