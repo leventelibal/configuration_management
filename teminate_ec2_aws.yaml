@@ -6,4 +6,4 @@
       ec2:
         instance_ids: "{{instance_ids}}"
         state: "{{state}}""  #stoped # started
-        region: "{{REGION}}"
+        region: "{{region}}"
