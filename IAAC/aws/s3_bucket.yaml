@@ -4,6 +4,6 @@
     tasks: 
       - name: S3 management
         aws_s3:
-          bucket: "{{bucket}}"
+          bucketname: "{{bucket}}"
           mode: "{{mode}}"
           region: "{{region}}" #never delete bucket just empty bucket  
