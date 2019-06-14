@@ -1,24 +1,22 @@
 ---
-  - name: 
-    become: yes
-    become_method: sudo
-    hosts: all
-    tasks:
-      - name: Add 1 user
-        user:
-          name: "{{user}}"
-          generate_ssh_key: true
-          state: present
-      - name: Create autorize_key file
-        file:
-          path: "/home/{{user}}/.ssh/authorized_keys"
-          mode: 0600
-          state: touch
-          owner: "{{user}}"
+- name: Adds user with ssh key
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Add 1 user
+      user:
+        name: "{{user}}"
+        generate_ssh_key: true
+        state: present
+    - name: Create authorized_key file
+      file:
+        path: "/home/{{user}}/.ssh/authorized_keys"
+        mode: 0600
+        state: touch
+        owner: "{{user}}"
 
-      - name: add public key
-        lineinfile:
-          path: "/home/{{user}}/.ssh/authorized_keys"
-          line: "{{line}}"
-
-        
+    - name:  add public key
+      lineinfile:
+        path: "/home/{{user}}/.ssh/authorized_keys"
+        line: "{{line}}"
