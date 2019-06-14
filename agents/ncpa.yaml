@@ -1,3 +1,4 @@
+
  - name: Install ncpa on centos6
         package: 
           name: ncpa
