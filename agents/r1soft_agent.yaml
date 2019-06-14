@@ -55,25 +55,25 @@
         
       
       # this line for Fedora
-      - block: 
-        - name: Created a Repostry
-          copy:
-            src: r1soft.repo
-            dest: /etc/yum.repos.d/r1soft.repo
-        
-        - name: Install r1soft agent
-          package: 
-            name: serverbackkup-enterprise-agent
-            state: present
+    #  - block: 
+    #    - name: Created a Repostry
+    #      copy:
+    #        src: r1soft.repo
+    #        dest: /etc/yum.repos.d/r1soft.repo
+    #    
+    #    - name: Install r1soft agent
+    #      package: 
+    #        name: serverbackkup-enterprise-agent
+    #        state: present
           
-        - name: Start Agent
-          systemd:
-            name: sbm-agent
-            state: restarted 
+    #   - name: Start Agent
+    #      systemd:
+    #        name: sbm-agent
+    #        state: restarted 
       
-        - name: Get Key
-          shell: "r1soft-setup --get-key http://35.192.9.120"  
-        when: ansible_distribution =="CenOS" and ansible_distribution =="28"
+    #    - name: Get Key
+    #      shell: "r1soft-setup --get-key http://35.192.9.120"  
+    #    when: ansible_distribution =="CenOS" and ansible_distribution =="28"
       
     # this line for centos 8
       - block: 
@@ -110,7 +110,7 @@
         systemd:
           name: sbm-agent
           state: restarted
-      - name: R1SOFT_INSTALLED_ON_FEDORA_28
-        systemd:
-          name: sbm-agent
-          state: restarted
+    #  - name: R1SOFT_INSTALLED_ON_FEDORA_28
+    #    systemd:
+    #      name: sbm-agent
+    #      state: restarted
