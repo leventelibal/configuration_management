@@ -8,6 +8,6 @@
       package:
         name: kernel
         state: latest
-    - name: Restart the system
-      reboot:
+   # - name: Restart the system
+   #   reboot:
         
