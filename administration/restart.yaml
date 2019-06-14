@@ -7,5 +7,5 @@
   host: all 
   task:
     - name: Restart
-      when: ansible_distrubution == "{{OS_TYPe}}"
+      when: ansible_distrubution == "{{OS_TYPE}}"
       reboot:
