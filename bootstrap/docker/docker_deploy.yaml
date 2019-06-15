@@ -12,5 +12,5 @@
         count: "{{count}}"
         vpc_subnet_id: "{{vpc_subnet_id}}"
         region: "{{region}}"
-        user_data: "{{ loop('file', 'docker_deploy.sh') }}"
+        user_data: "{{loop('file', 'docker_deploy.sh')}}"
         
