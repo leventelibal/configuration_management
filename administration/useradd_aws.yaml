@@ -1,6 +1,6 @@
 ---
 - name: Adds user with ssh key
-  hosts: all
+  hosts: localhost
   become: yes
   become_user: root
   tasks:
