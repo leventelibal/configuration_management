@@ -1,0 +1,6 @@
+state: "{{state}}" 
+zone: "{{zone}}"
+record: "{{record}}"
+type: A
+ttl: 7200
+IP: "{{IP}}"
