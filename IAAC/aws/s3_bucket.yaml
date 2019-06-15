@@ -8,4 +8,4 @@
       aws_s3:
         bucket: "{{bucket}}"
         mode: "{{mode}}"
-  #        region: "{{region}}" #never delete bucket just empty bucket  
+        region: "{{region}}" #never delete bucket just empty bucket  
