@@ -1,6 +1,6 @@
 ---
   - name: creates and deletes S3 buckets
-    hosts: all
+    hosts: localhost
     tasks: 
       - name: S3 Management
         aws_s3:
