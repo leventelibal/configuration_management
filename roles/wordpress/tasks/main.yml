@@ -47,6 +47,6 @@
   systemd: 
     name: httpd
     state: stopped  #restarted
-    enabled: no     #yes
+    enabled: yes     
   become: yes
   become_method: sudo  
