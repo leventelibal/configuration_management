@@ -1,7 +1,7 @@
 ---
 - name: installs docker on new instance
   hosts: localhost
-  var_files:
+  vars_files:
     -docker_vars
   tasks:
     - name: Deploy instance
