@@ -1,2 +1,111 @@
 ---
 # tasks file for r1soft
+  - block: 
+    - name: Create a Repostry
+      copy:
+        src: r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.repo
+
+    - name: Install r1soft agent
+      package: 
+        name: serverbackup-enterprise-agent
+        state: present
+      notify: R1SOFT_INSTALLED
+
+    - name: Start Agent
+      systemd:
+        name: sbm-agent
+        state: restarted 
+  
+    - name: Get Key
+      shell: "r1soft-setup --get-key http://35.192.9.120"  
+    when: ansible_distribution =="CenOS" and ansible_distribution =="7"
+
+
+  
+
+
+
+  #This line for centos 6 
+  - block: 
+    - name: Create a Repostry
+      copy:
+        src: r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.repo
+
+    - name: Install r1soft agent
+      package: 
+        name: serverbackup-enterprise-agent
+        state: present
+      
+    - name: Start Agent
+      service:
+        name: cdp-agent
+        state: restarted 
+  
+    - name: Get Key
+      shell: "r1soft-setup --get-key http://35.192.9.120"  
+    when: ansible_distribution =="CenOS" and ansible_distribution =="6"
+
+    
+  
+  # this line for Fedora
+#  - block: 
+#    - name: Created a Repostry
+#      copy:
+#        src: r1soft.repo
+#        dest: /etc/yum.repos.d/r1soft.repo
+#    
+#    - name: Install r1soft agent
+#      package: 
+#        name: serverbackkup-enterprise-agent
+#        state: present
+      
+#   - name: Start Agent
+#      systemd:
+#        name: sbm-agent
+#        state: restarted 
+  
+#    - name: Get Key
+#      shell: "r1soft-setup --get-key http://35.192.9.120"  
+#    when: ansible_distribution =="CenOS" and ansible_distribution =="28"
+  
+# this line for centos 8
+  - block: 
+    - name: Created a Repostry
+      copy:
+        src: r1soft.repo
+        dest: /etc/yum.repos.d/r1soft.repo
+
+    - name: Install r1soft agent
+      package: 
+        name: serverbackup-enterprise-agent
+        state: present
+      
+    - name: Start Agent
+      service:
+        name: cdp-agent
+        state: restarted 
+  
+    - name: Get Key
+      shell: "r1soft-setup --get-key http;//r1soft.acirrustech.com"  
+    when: ansible_distribution =="CenOS" and ansible_distribution =="6"  
+
+
+    handlers:
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
+        systemd:
+          name: cdp-agent
+          state: restarted
+      - name: R1SOFT_INSTALLED_ON_CENTOS_7
+        service:
+          name: sbm-agent
+          state: restarted
+      - name: R1SOFT_INSTALLED_ON_CENTOS_8
+        systemd:
+          name: sbm-agent
+          state: restarted
+    #  - name: R1SOFT_INSTALLED_ON_FEDORA_28
+    #    systemd:
+    #      name: sbm-agent
+    #      state: restarted
