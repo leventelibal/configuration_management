@@ -3,7 +3,7 @@
   hosts: localhost
   var_files:
     -docker_vars
-  task:
+  tasks:
     - name: Deploy instance
       ec2:
         key_name: "{{key_name}}"
