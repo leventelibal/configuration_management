@@ -1,8 +1,8 @@
 ---
 - name: creates and deletes S3 buckets
   hosts: all
-  vars_file:
-    - var_s3
+ # vars_file:
+  #  - var_s3
   tasks: 
     - name: S3 Management
       aws_s3:
