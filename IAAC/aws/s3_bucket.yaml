@@ -1,6 +1,6 @@
 ---
 - name: creates and deletes S3 buckets
-  hosts: all
+  hosts: localhost
  # vars_file:
   #  - var_s3
   tasks: 
