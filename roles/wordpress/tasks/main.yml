@@ -15,7 +15,7 @@ tasks:
       - php
       - php-mysql
       - php-fpm 
-      ignore_errors: true 
+    ignore_errors: true 
 
   - name: install remi php epel release
     shell: "sudo wget -q http://rpms.remirepo.net/enterprise/remi-release-7.rpm"
