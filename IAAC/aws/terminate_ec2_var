@@ -1,3 +1,3 @@
-instance_ids: 'i-09e3db7fb29e09035' #i-09e3db7fb29e09035
-state: 'absent' #started #stopped #restarted #absent
-region: 's-west-2' #us-west-2
+instance_ids: "i-09e3db7fb29e09035" #i-09e3db7fb29e09035
+state: "absent" #started #stopped #restarted #absent
+region: "us-west-2" #us-west-2
