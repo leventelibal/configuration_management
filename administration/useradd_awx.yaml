@@ -1,12 +1,12 @@
 ---
 - name: Adds user with ssh key
-  hosts: localhost
+  hosts: all
   become: yes
   become_user: root
   tasks:
     - name: Add 1 user
       user:
-        name: "{{user}}"
+        user: "{{user}}"
         generate_ssh_key: true
         state: present
     - name: Create authorized_key file
