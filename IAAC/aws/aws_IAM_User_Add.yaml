@@ -1,8 +1,8 @@
 ---
 - name: IAM user add
   hosts: localhost
-  vars_files:
-    - IAM _user_add_var
+#  vars_files:
+#    - IAM _user_add_var
   tasks:
     - name: IAM user add with password (console access) 
       iam:
