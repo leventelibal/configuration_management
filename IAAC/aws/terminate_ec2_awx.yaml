@@ -1,11 +1,9 @@
---- 
+---
 - name: Terminates instances
-  hosts: localhost 
-  vars_files:
-    - terminate_ec2_var
+  hosts: localhost
   tasks:
     - name: Terminate instances
       ec2:
-        instance_ids: "{{id_of_instance}}"
-        state: "{{state}}" #started #stopped #restarted
+        instance_ids: "{{instance_ids}}"
+        state: "{{state}}"    #stopped   #started  #restarted #absent
         region: "{{region}}"
