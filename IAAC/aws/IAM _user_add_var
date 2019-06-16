@@ -1,0 +1,4 @@
+iam_type: user
+name: "levent"                 # Type name of the user
+state: present                 # present     # absent     
+password: "leve1453"           # Create user password
