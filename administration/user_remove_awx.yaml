@@ -1,0 +1,10 @@
+---
+- name: This will delete user on AWS 
+  hosts: localhost
+  gather_facts: yes
+  tasks: 
+    - name: delete user from account (AWS)
+      iam:
+        iam_type: user
+        name: "{{delete_user_name}}"
+        state: absent
