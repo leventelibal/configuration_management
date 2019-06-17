@@ -5,5 +5,7 @@
   tasks:
     - name: IAM add role
       iam_role:
-        name: "{{name}}"                          #Give a name to the role   Ex:MyNewRole
+        name: "{{name}}"         #please write a name to the role   Ex:MyRole
+        assume_role_policy_document: "{{ lookup('file', 'policy.json') }}" # ex:power_roll
+        description: "{{description}}" # please write description like "This is My New Role"
         state: present
