@@ -4,5 +4,5 @@
   tasks:
     - name: IAM group add 
       iam_group:
-        name: "{{item}}"
+        name: "{{ name }}"
         state: absent
