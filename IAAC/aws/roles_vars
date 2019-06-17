@@ -1,0 +1,5 @@
+# the Amazon Resource Name (ARN) specifying the role
+ - arn:aws:iam::aws:policy/PowerUserAccess
+#- arn:aws:iam::aws:policy/AdministratorAccess
+#- arn:aws:iam::aws:policy/AmazonEC2FullAccess
+#- arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
