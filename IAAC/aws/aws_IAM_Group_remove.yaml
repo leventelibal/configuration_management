@@ -5,7 +5,7 @@
     - name: IAM group add 
       iam_group:
         name: "{{ item }}"
-        state: present
+        state: "{{ item }}"
 
 
 
