@@ -21,4 +21,9 @@
 #          - test2 
           
     #    register: new_groups        
- 
+#iam_type: group   # user # group # role
+#name: "{{ item }}" # name of the group
+#state: present   # present # absent # update
+#loop: "{{ range(1, 5 + 1)| list }}" # range (start number, how many last + change the number frequency 
+#- test1 # name of the group
+#- test2 # name of the group if you like t oadd new group add "- and name of the group as is 
