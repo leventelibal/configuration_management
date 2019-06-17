@@ -1,5 +1,5 @@
 ---
-- name: IAM group delete
+- name: IAM group add
   hosts: localhost
   tasks:
     - name: Create Groups, 
