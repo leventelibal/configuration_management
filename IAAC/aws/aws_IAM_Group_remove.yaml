@@ -3,7 +3,16 @@
   hosts: localhost
   tasks:
     - name: IAM group add 
-      iam:
-        iam_type: group
-        name: "{{ name }}"                    # Type name of the group
-        state: absent   
+    - iam_group:
+      name: testgroup1
+      state: present
+
+
+
+
+
+#        iam:
+#        iam_type: group
+#        name: "{{ name }}"                    # Type name of the group
+#        state: absent        
+ 

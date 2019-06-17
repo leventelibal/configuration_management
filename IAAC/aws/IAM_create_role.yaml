@@ -9,9 +9,9 @@
         description: "{{description}}" # please write description like "This is My New Role"
         state: present    # present # absent 
         managed_policy:
-          - arn:aws:iam::aws:policy/PowerUserAccess
-      #- arn:aws:iam::aws:policy/AdministratorAccess
-      #- arn:aws:iam::aws:policy/AmazonEC2FullAccess
-      #- arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
+      #    - arn:aws:iam::aws:policy/PowerUserAccess
+      #    - arn:aws:iam::aws:policy/AdministratorAccess
+      #    - arn:aws:iam::aws:policy/AmazonEC2FullAccess
+      #    - arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
 
 
