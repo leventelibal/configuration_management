@@ -1,0 +1,8 @@
+---
+- name: IAM group delete
+  hosts: localhost
+  tasks:
+    - name: IAM group add 
+      iam_group:
+        name: "{{ item }}"
+        state: absent
