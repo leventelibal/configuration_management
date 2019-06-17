@@ -1,0 +1,12 @@
+---
+- name: Create a snapshot on existing volume
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: create a snapshot on existing volume
+      local_action:
+        module: ec2_snapshot
+        volume_id: "{{volume_id}}"             # volume ID of  Machine.
+        region: "{{region}}"                   # name of region where my volume is located.
+        description: "{{description}}"         # giving description or naming convention for my snapshot
