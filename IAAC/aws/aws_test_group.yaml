@@ -5,7 +5,7 @@
     - name: Create Groups, 
       iam:
         iam_type: group
-        name: "{{ item }}"
+        name: "{{ name }}"
         state: present
 #      loop: "{{ range(1, 5 + 1)| list }}"
 #          - test1
@@ -13,7 +13,7 @@
           
     #    register: new_groups        
 #iam_type: group   # user # group # role
-#name: "{{ item }}" # name of the group
+#name: "{{ name }}" # name of the group
 #state: present   # present # absent # update
 #loop: "{{ range(1, 5 + 1)| list }}" # range (start number, how many last + change the number frequency 
 #- test1 # name of the group
