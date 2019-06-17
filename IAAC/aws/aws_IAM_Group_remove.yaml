@@ -3,9 +3,9 @@
   hosts: localhost
   tasks:
     - name: IAM group add 
-    - iam_group:
-      name: testgroup1
-      state: present
+      iam_group:
+        name: testgroup1
+        state: present
 
 
 
