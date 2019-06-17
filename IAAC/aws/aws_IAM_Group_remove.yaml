@@ -10,14 +10,14 @@
 
 
 
-  task:
-  - name: Create Groups, 
-    iam:
-      iam_type: group
-      name: "{{ item }}"
-      state: present
-    loop:
-       - test1
-       - test2 
-#    register: new_groups        
+  tasks:
+    - name: Create Groups, 
+      iam:
+        iam_type: group
+        name: "{{ item }}"
+        state: present
+      loop:
+          - test1
+          - test2 
+    #    register: new_groups        
  
