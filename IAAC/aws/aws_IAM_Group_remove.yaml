@@ -15,7 +15,6 @@
       iam:
         iam_type: group
         name: "{{ item }}"
-        count: "{{count}}"
         state: present
       loop: "{{ range(1, 5 + 1)| list }}"
 #          - test1
