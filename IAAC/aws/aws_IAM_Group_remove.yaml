@@ -1,22 +1,22 @@
 ---
 - name: IAM group add
   hosts: localhost
-#  tasks:
-#    - name: IAM group add 
-#      iam_group:
-#        name: testgroup1
-#        state: present
-
-
-
-
   tasks:
-    - name: Create Groups, 
-      iam:
-        iam_type: group
+    - name: IAM group add 
+      iam_group:
         name: "{{ item }}"
         state: present
-      loop: "{{ range(1, 5 + 1)| list }}"
+
+
+
+
+#  tasks:
+#    - name: Create Groups, 
+#      iam:
+#        iam_type: group
+#        name: "{{ item }}"
+#        state: present
+#      loop: "{{ range(1, 5 + 1)| list }}"
 #          - test1
 #          - test2 
           
