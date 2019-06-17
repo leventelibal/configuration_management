@@ -15,9 +15,11 @@
       iam:
         iam_type: group
         name: "{{ item }}"
+        count: "{{count}}"
         state: present
-      loop:
-          - test1
-          - test2 
+      loop: "{{ range(1, 5 + 1)| list }}"
+#          - test1
+#          - test2 
+          
     #    register: new_groups        
  
