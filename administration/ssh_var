@@ -1,7 +1,9 @@
 name: "my_key"
 key_material: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFrUz/ZQMC+9TYpPNeT/qxVJPEn/hdxF1oXxtwGCB7bWOEpUA9LSBTYa2/mrNe5tFLAY8E/ZInkaqFEw4OsZs/5uMrdygJTZ3cC1wM0W3uYVYDUi0y/VT794d1NKxrfXMxUcI6sr7GMt6AH1yv1Vtn7N/LyC4hSmb7Q8NlZ5BRbVuR9lcY/zausY2teVB9dskINLJJjmjAYTJIM7i3/WJLI8mK+ffQe3+6+Fr5M3AkDMl9qiB5WwJRP4EFEB8wexDsBGqOimrnerDNL0GxFgGvQrzwJs7/BLr2exE2XkXMROcGgdkouBS73chHm/xSzMGpBVhlr8wp0FHpln6kl4SL centos@awx-tower"
 state: absent # absent # present
-loop: 
-  - "us-west-2"
-  - "us-east-1"
-  - "eu-west-2"
+key_region_1: "us-west-2"
+key_region_2: "us-east-1"
+key_region_3: "eu-west-2"
+ 
+ 
+ 
