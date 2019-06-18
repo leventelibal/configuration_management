@@ -6,12 +6,12 @@
   #connection: local
   gather_facts: false
   tasks:
-      - name: let's play
-        openssh_keypair: 
-            path: /tmp/id_ssh_rsa
-            size: 2048
-        register: res 
-      - debug: var=res 
+    - name: let's play
+      openssh_keypair: 
+        path: /tmp/id_ssh_rsa
+        size: 2048
+      register: res 
+    - debug: var=res 
 
 #1. go to /etc/ansible/ansible.cfg and uncomment the inventory line 
 #2. go to /etc/ansible/hosts file and put the IP of ur instance 
