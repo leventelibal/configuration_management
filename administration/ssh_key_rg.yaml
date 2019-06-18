@@ -1,8 +1,7 @@
 ---
 - name: create a new ec2 key pair, returns generated private key
   hosts: localhost
-#  become: yes
-#  become_method: sudo 
   ec2_key:
-    name: my_keypair
-#    region: "{{ name }}"
+    name: "{{name}}"
+    region: "{{region}}"
+    key_material: "{{key_material}}"
