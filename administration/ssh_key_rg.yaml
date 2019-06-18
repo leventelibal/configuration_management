@@ -7,4 +7,8 @@
         name: "{{name}}" # Name of the key 
         state: absent # absent # present
         key_material: "{{key_material}}" # ssh_key
-        region: "{{region}}" # region location
+        region: "{{item}}" # region location
+      loop: 
+        - "{{key_region_1}}"
+        - "{{key_region_2}}"
+        - "{{key_region_3}}"
