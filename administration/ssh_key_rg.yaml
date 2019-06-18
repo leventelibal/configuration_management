@@ -1,8 +1,7 @@
 ---
 - name: create a new ec2 key pair, returns generated private key
   hosts: localhost
-  vars_files:
-    - ssh_var
+  vars_files: ssh_vars
   tasks:
     ec2_key:
       name: "{{name}}"
