@@ -1,7 +1,7 @@
 ---
 - name: keypair
   hosts: localhost
-  vars_files: ssh_vars
+  vars_files: ssh_var
   tasks:
     - name: create keypair in different region
       ec2_key: 
