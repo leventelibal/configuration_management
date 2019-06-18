@@ -1,5 +1,6 @@
 ---
 - name: create a new ec2 key pair, returns generated private key
+  hosts: localhost
   ec2_key:
     name: "{{ name }}"
     region: "{{ name }}"
