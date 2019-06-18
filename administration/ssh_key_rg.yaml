@@ -5,4 +5,4 @@
   become_method: sudo 
   ec2_key:
     name: "{{ name }}"
-    region: "{{ name }}"
+#    region: "{{ name }}"
