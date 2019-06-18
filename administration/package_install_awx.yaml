@@ -5,5 +5,5 @@
   tasks:
     - name: Install package
       package:
-        name: "{{package_name}}"
+        name: "{{ name }}"
         state: latest
