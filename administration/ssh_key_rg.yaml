@@ -1,5 +1,5 @@
 ---
-- name: create a new ec2 key pair, returns generated private key
+- name: mykey
   hosts: localhost
   vars_files: ssh_vars
   tasks:
