@@ -1,18 +1,18 @@
 ---
-- hosts: localhost  # put localhost.  We are processing against aws
-  connection: local  # put local.  We are processing against aws
-  gather_facts: False  # don't gather facts against localhost
+- hosts: localhost  # 
+  connection: local  # 
+  gather_facts: False  # 
   vars:
     aws_access_key: ''
     aws_secret_key: ''
-    instance_name: 'NameYourServer'
-    key_name: 'ANSIBLE_TOWER_CLI'
-    instance_type: 't2.micro' # keep it free
-    image: 'ami-03cebf94e918675be' # free ami from Amazon us-east-2 region
-    vpc_subnet_id: 'subnet-bc2b54c6'
-    group_id: 'allow_ssh_and_awx'
-    zone: 'us-east-2'
-    region: 'us-east-2'
+    instance_name: ''
+    key_name: ''
+    instance_type: 't2.micro' 
+    image: 'ami-0d19227302e8e4bb5' # 
+    vpc_subnet_id: ''
+    group_id: ''
+    zone: 'us-east-1a'
+    region: 'us-east-1'
   tasks:
     - name: create an aws instance
       ec2:
@@ -39,7 +39,7 @@
         region: "{{ region }}"
         filters:
           attachment.instance-id: "{{ ec2_instance.instance_ids }}"
-      #register: volume_facts
+      register: volume_facts
     - name: create volume tags for instance 
       ec2_tag:
         aws_access_key: "{{ aws_access_key }}"
@@ -57,6 +57,6 @@
         region: "{{ region }}"
         instance_ids: "{{ ec2_instance.instance_ids }}"
       register: instance_facts
-    - name: degug # print instance facts
+    - name: degug 
       debug:
         msg: "{{ instance_facts }}"
