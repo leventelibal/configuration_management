@@ -3,7 +3,8 @@
   hosts: localhost
   vars_files:
     - ssh_var
-  ec2_key:
-    name: "{{name}}"
-    region: "{{region}}"
-    key_material: "{{key_material}}"
+  tasks:
+    ec2_key:
+      name: "{{name}}"
+      region: "{{region}}"
+      key_material: "{{key_material}}"
