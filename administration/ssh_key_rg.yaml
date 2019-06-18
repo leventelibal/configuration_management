@@ -4,7 +4,7 @@
   vars_files: ssh_var
   tasks:
     - ec2_key: 
-        name: "{{name}}"
-        state: present
-        key_material: "{{key_material}}"
-        region: "{{region}}"
+        name: "{{name}}" # Name of the key 
+        state: absent # absent # present
+        key_material: "{{key_material}}" # ssh_key
+        region: "{{region}}" # region location
