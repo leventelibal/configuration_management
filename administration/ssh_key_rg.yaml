@@ -1,9 +1,10 @@
 ---
-- name: mykey
+- name: keypair
   hosts: localhost
   vars_files: ssh_vars
   tasks:
-    ec2_key:
-      name: "{{name}}"
-      region: "{{region}}"
-      key_material: "{{key_material}}"
+    - name: create keypair in different region
+      ec2_key: 
+        name: "{{name}}"
+        key_material: "{{key_material}}"
+        region: "{{region}}"
