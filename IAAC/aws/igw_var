@@ -1,0 +1,5 @@
+vpc_id: "vpc-0b97f5aca02dc7cb4"                    # Add VPC ID
+state: present
+region: "us-east-2"                    # Add region
+tags: 
+    Name: "db_igw"                      # Add Name Tag

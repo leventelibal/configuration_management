@@ -1,5 +1,6 @@
 - name: Creates Internet Gateway (igw)
   hosts: localhost
+#  vars_files: igw_var
   tasks:
     - name: Creating igw
       ec2_vpc_igw:
