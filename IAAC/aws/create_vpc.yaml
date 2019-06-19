@@ -1,6 +1,7 @@
 ---
 - name: Creates VPC
   hosts: localhost
+  vars_files: vpc_vars
   tasks:
     - ec2_vpc_net:                       
       name: "{{name}}"                 # Type a name for VPC
