@@ -2,7 +2,7 @@
 - name: vpc create
   hosts: localhost
   gather_facts: yes
-  vars_files: vpc_vars
+#  vars_files: vpc_vars
   tasks:
     - name: create vpc in region
       ec2_vpc_net:
