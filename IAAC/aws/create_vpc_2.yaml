@@ -1,0 +1,19 @@
+  ---
+  - name: create vpc in region
+    hosts: localhost
+    tasks:
+
+    - name: create vpc in region
+      ec2_vpc_net:
+        name: "{{vpc_name}}"
+        cidr_block: "{{vpc_cidr_block}}"
+        region: "{{vpc_region}}"
+        tags: 
+          module: "{{environment_name}}"
+      register: vpc
+      
+    # - name: display vpc facts
+    #   debug:
+    #     msg: "{{item}}"
+    #   with_items:
+    #   - "{{vpc.vpc.id}}"

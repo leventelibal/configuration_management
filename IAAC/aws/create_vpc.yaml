@@ -7,3 +7,4 @@
         state: present               
         cidr_block: "{{cidr_block}}"     # Type CIDR
         region: "{{region}}"             # Type region
+      register: vpc
