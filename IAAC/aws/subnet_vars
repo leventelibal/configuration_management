@@ -1,0 +1,23 @@
+- name: create subnet a
+ec2_vpc_subnet:
+state: present
+region: "us-east-1"
+vpc_id: "vpc-0b97f5aca02dc7cb4"
+cidr: "172.32.0.0/16"
+az: "us-east-1a"
+
+- name: create subnet b
+ec2_vpc_subnet:
+state: present
+region: "us-east-1"
+vpc_id: "vpc-0b97f5aca02dc7cb4"
+cidr: "172.32.0.0/16"
+az: "us-east-1b"
+
+- name: create subnet c
+ec2_vpc_subnet:
+state: present
+region: "us-east-1"
+vpc_id: "vpc-0b97f5aca02dc7cb4"
+cidr: "172.32.0.0/16"
+az: "us-east-1c"
