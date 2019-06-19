@@ -3,10 +3,11 @@
   hosts: localhost
   gather_facts: yes
   vars_files: vpc_vars
-  tasks:
-    - ec2_vpc_net:                       
-      name: "{{name}}"                 # Type a name for VPC
-      state: present               
-      cidr_block: "{{cidr_block}}"     # Type CIDR
-      region: "{{region}}"             # Type region
-  register: vpc
+    - name: Creates VPC
+      tasks:
+        - ec2_vpc_net:                       
+            name: "{{name}}"                 # Type a name for VPC
+            state: present               
+            cidr_block: "{{cidr_block}}"     # Type CIDR
+            region: "{{region}}"             # Type region
+            register: vpc

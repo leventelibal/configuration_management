@@ -1,9 +1,10 @@
-  ---
-  - name: create vpc in region
-    hosts: localhost
-    vars_files: vpc_vars
-    tasks:
-
+---
+- name: vpc create
+  hosts: localhost
+  gather_facts: yes
+  vars_files: vpc_vars
+  tasks:
+       
     - name: create vpc in region
       ec2_vpc_net:
         name: "{{vpc_name}}"
@@ -12,9 +13,3 @@
         tags: 
           module: "{{environment_name}}"
       register: vpc
-      
-    # - name: display vpc facts
-    #   debug:
-    #     msg: "{{item}}"
-    #   with_items:
-    #   - "{{vpc.vpc.id}}"
