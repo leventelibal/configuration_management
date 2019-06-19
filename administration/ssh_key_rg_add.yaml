@@ -1,5 +1,5 @@
 ---
-- name: keypair
+- name: keypair adding from regions
   hosts: localhost
   vars_files: ssh_var
   tasks:
