@@ -1,0 +1,4 @@
+name: "myvpc"                 # Type a name for VPC
+state: present               
+cidr_block: "172.31.0.0/16"     # Type CIDR
+region: "us-east-1"             # Type region

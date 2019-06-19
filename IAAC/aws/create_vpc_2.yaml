@@ -1,6 +1,7 @@
   ---
   - name: create vpc in region
     hosts: localhost
+    vars_files: vpc_vars
     tasks:
 
     - name: create vpc in region
