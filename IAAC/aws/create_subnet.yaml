@@ -5,33 +5,33 @@
   vars_files: subnet_vars
   
   tasks:
-    - name: create subnet a
-      ec2_vpc_subnet:
-        state: present
-        region: "{{region}}"
-        vpc_id: "{{vpc.id}}"
-        cidr: "{{cidr}}"
-        az: "{{az}}"
+  - name: create subnet a
+    ec2_vpc_subnet:
+      state: present
+      region: "{{region}}"
+      vpc_id: "{{vpc.id}}"
+      cidr: "{{cidr}}"
+      az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet1 
 #      register: db_subnet
-    - name: create subnet b
-      ec2_vpc_subnet:
-        state: present
-        region: "{{region}}"
-        vpc_id: "{{vpc.id}}"
-        cidr: "{{cidr}}"
-        az: "{{az}}"
+#  - name: create subnet b
+#    ec2_vpc_subnet:
+#      state: present
+#      region: "{{region}}"
+#      vpc_id: "{{vpc.id}}"
+#      cidr: "{{cidr}}"
+#      az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet2 
 #      register: db_subnet
-    - name: create subnet c
-      ec2_vpc_subnet:
-        state: present
-        region: "{{region}}"
-        vpc_id: "{{vpc.id}}"
-        cidr: "{{cidr}}"
-        az: "{{az}}"
+#  - name: create subnet c
+#    ec2_vpc_subnet:
+#      state: present
+#      region: "{{region}}"
+#      vpc_id: "{{vpc.id}}"
+#      cidr: "{{cidr}}"
+#      az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet3 
 #      register: db_subnet
