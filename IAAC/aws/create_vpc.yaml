@@ -1,6 +1,7 @@
 ---
 - name: Creates VPC
   hosts: localhost
+  gather_facts: yes
   vars_files: vpc_vars
   tasks:
     - ec2_vpc_net:                       

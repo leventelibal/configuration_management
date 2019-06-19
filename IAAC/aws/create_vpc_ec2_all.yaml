@@ -1,0 +1,125 @@
+---
+- name: this will build whole infrastructure for you
+  hosts: localhost
+  gather_facts: yes
+  vars_files: IAAS_vars
+  tasks:
+    
+    - name: create ssh key in different regions
+      ec2_key:
+        name: "{{key_name}}"
+        key_material: "{{key_material}}"
+        region: "{{ item }}"
+      loop:
+        - "{{key_region_1}}"
+        - "{{key_region_2}}"
+        - "{{key_region_3}}"
+        
+    - name: create vpc in region
+      ec2_vpc_net:
+        name: "{{vpc_name}}"
+        cidr_block: "{{vpc_cidr_block}}"
+        region: "{{vpc_region}}"
+        tags: 
+          module: "{{environment_name}}"
+      register: vpc
+      
+    # - name: display vpc facts
+    #   debug:
+    #     msg: "{{item}}"
+    #   with_items:
+    #   - "{{vpc.vpc.id}}"
+        
+
+
+    - name: create subnet a
+      ec2_vpc_subnet:
+        state: present
+        region: "{{vpc_region}}"
+        vpc_id: "{{vpc.vpc.id}}"
+        cidr: "{{subnet_cidr_a}}"
+        az: "{{az_a}}"
+
+    - name: create subnet b
+      ec2_vpc_subnet:
+        state: present
+        region: "{{vpc_region}}"
+        vpc_id: "{{vpc.vpc.id}}"
+        cidr: "{{subnet_cidr_b}}"
+        az: "{{az_b}}"
+
+    - name: create subnet c
+      ec2_vpc_subnet:
+        state: present
+        region: "{{vpc_region}}"
+        vpc_id: "{{vpc.vpc.id}}"
+        cidr: "{{subnet_cidr_c}}"
+        az: "{{az_c}}"
+    
+    - name: create internet gateway
+      ec2_vpc_igw:
+        region: "{{vpc_region}}"
+        vpc_id: "{{vpc.vpc.id}}"
+        state: present
+      register: igw
+
+   
+        
+    # - name: display igw facts
+    #   debug:
+    #     msg: "{{item}}"
+    #   with_items:
+    #   - "{{igw}}"
+
+
+
+
+
+
+    - name: Set up public subnet route table
+      ec2_vpc_route_table:
+        vpc_id: "{{vpc.vpc.id}}"
+        region: "{{vpc_region}}"
+        tags:
+          Name: Public
+        subnets:
+          - "{{ subnet_cidr_a }}"
+          - "{{ subnet_cidr_b }}"
+          - "{{ subnet_cidr_c }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+
+      
+         
+    - name: create security group
+      ec2_group:
+        name: "{{security_group_name}}"
+        description: "{{description}}"
+        vpc_id: "{{vpc.vpc.id}}"
+        region: "{{vpc_region}}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: 0.0.0.0/0
+
+    - name: create ec2 instance with above things
+      ec2:
+        key_name: "{{key_name}}"
+        group: "{{security_group_name}}"
+        instance_type: "{{instance_type}}"
+        image: "{{image}}"
+        wait: true
+        count: "{{count}}"
+        region: "{{vpc_region}}"
+        vpc_subnet_id: "{{item}}"
+        assign_public_ip: yes
+      loop:
+        - "{{cidr_subnet_a}}"
+        - "{{cidr_subnet_b}}"
+        - "{{cidr_subnet_c}}
