@@ -6,7 +6,6 @@
   tasks:
     - name: create subnet a
       ec2_vpc_subnet:
-        name: subnet1
         state: present
         region: us-east-1 
         vpc_id: vpc-0b97f5aca02dc7cb4
