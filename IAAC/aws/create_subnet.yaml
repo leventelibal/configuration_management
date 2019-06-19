@@ -6,7 +6,7 @@
   
   tasks:
     - name: create subnet a
-      ec2_subnet:
+      ec2_vpc_subnet:
         state: present
         region: "{{region}}"
         vpc_id: "{{vpc.id}}"
@@ -16,7 +16,7 @@
 #          Name: Db_Subnet1 
 
     - name: create subnet b
-      ec2_subnet:
+      ec2_vpc_subnet:
         state: present
         region: "{{region}}"
         vpc_id: "{{vpc.id}}"
@@ -26,7 +26,7 @@
 #          Name: Db_Subnet2 
 
     - name: create subnet c
-      ec2_subnet:
+      ec2_vpc_subnet:
         state: present
         region: "{{region}}"
         vpc_id: "{{vpc.id}}"
