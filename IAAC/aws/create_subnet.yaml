@@ -14,7 +14,7 @@
         az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet1 
-
+#      register: db_subnet
     - name: create subnet b
       ec2_vpc_subnet:
         state: present
@@ -24,7 +24,7 @@
         az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet2 
-
+#      register: db_subnet
     - name: create subnet c
       ec2_vpc_subnet:
         state: present
