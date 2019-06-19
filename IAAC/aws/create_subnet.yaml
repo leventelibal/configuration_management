@@ -2,14 +2,14 @@
 - name: Creates subnets
   hosts: localhost
   gather_facts: yes
-  vars_files: subnet_vars
+#  vars_files: subnet_vars
   tasks:
     - name: create subnet a
       ec2_vpc_subnet:
         state: present
-        region: "{{region}}"
-        vpc_id: "{{vpc.id}}"
-        cidr: "{{cidr}}"
+        region: us-east-1 
+        vpc_id: vpc-0b97f5aca02dc7cb4
+        cidr: 172.32.0.1/16
 #        az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet1 
