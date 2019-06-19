@@ -12,8 +12,8 @@
         vpc_id: "{{vpc.id}}"
         cidr: "{{cidr}}"
         az: "{{az}}"
-        resource_tags:
-          Name: Db_Subnet1 
+#        resource_tags:
+#          Name: Db_Subnet1 
 
     - name: create subnet b
       ec2_subnet:
@@ -22,8 +22,8 @@
         vpc_id: "{{vpc.id}}"
         cidr: "{{cidr}}"
         az: "{{az}}"
-        resource_tags:
-          Name: Db_Subnet2 
+#        resource_tags:
+#          Name: Db_Subnet2 
 
     - name: create subnet c
       ec2_subnet:
@@ -32,6 +32,6 @@
         vpc_id: "{{vpc.id}}"
         cidr: "{{cidr}}"
         az: "{{az}}"
-        resource_tags:
-          Name: Db_Subnet3 
-      register: db_subnet
+#        resource_tags:
+#          Name: Db_Subnet3 
+#      register: db_subnet
