@@ -6,9 +6,9 @@
   tasks:
     - name: create vpc in region
       ec2_vpc_net:
-        name: "{{vpc_name}}"
-        cidr_block: "{{vpc_cidr_block}}"
-        region: "{{vpc_region}}"
-        tags: 
-          module: "{{environment_name}}"
-      register: vpc
+        name: "{{name}}"
+        cidr_block: "{{cidr_block}}"
+        region: "{{region}}"
+#        tags: 
+#          module: "{{environment_name}}"
+#      register: vpc
