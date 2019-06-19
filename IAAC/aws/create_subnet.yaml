@@ -10,7 +10,7 @@
         state: present
         region: us-east-1 
         vpc_id: vpc-0b97f5aca02dc7cb4
-        cidr: 172.32.0.0/16
+        cidr: 172.32.0.0/32
 #        az: "{{az}}"
 #        resource_tags:
 #          Name: Db_Subnet1 
