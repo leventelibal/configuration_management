@@ -6,25 +6,32 @@
   #  - name: Creates subnets
   tasks:
     - name: create subnet a
-      ec2_vpc_subnet:
+      ec2_subnet:
         state: present
-        region: "{{vpc_region}}"
-        vpc_id: "{{vpc.vpc.id}}"
-        cidr: "{{subnet_cidr_a}}"
-        az: "{{az_a}}"
+        region: "{{region}}"
+        vpc_id: "{{vpc.id}}"
+        cidr: "{{cidr}}"
+        az: "{{az}}"
+        resource_tags:
+          Name: Db_Subnet1 
 
     - name: create subnet b
-      ec2_vpc_subnet:
+      ec2_subnet:
         state: present
-        region: "{{vpc_region}}"
-        vpc_id: "{{vpc.vpc.id}}"
-        cidr: "{{subnet_cidr_b}}"
-        az: "{{az_b}}"
+        region: "{{region}}"
+        vpc_id: "{{vpc.id}}"
+        cidr: "{{cidr}}"
+        az: "{{az}}"
+        resource_tags:
+          Name: Db_Subnet2 
 
     - name: create subnet c
-      ec2_vpc_subnet:
+      ec2_subnet:
         state: present
-        region: "{{vpc_region}}"
-        vpc_id: "{{vpc.vpc.id}}"
-        cidr: "{{subnet_cidr_c}}"
-        az: "{{az_c}}"
+        region: "{{region}}"
+        vpc_id: "{{vpc.id}}"
+        cidr: "{{cidr}}"
+        az: "{{az}}"
+        resource_tags:
+          Name: Db_Subnet3 
+      register: db_subnet
