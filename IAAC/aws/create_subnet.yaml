@@ -1,9 +1,9 @@
 ---
-- name: Creates VPC
+- name: Creates subnets
   hosts: localhost
   gather_facts: yes
   vars_files: subnet_vars
-  #  - name: Creates subnets
+  
   tasks:
     - name: create subnet a
       ec2_subnet:
